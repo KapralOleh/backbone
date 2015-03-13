@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	
+	<div id="show"></div>
+	
+
+	
+	<script src="jquery.js"></script>
+	<script src="underscore.js"></script>
+	<script src="backbone.js"></script>
+	
+
+	<script>
+    $(function(){
+        var compiled = _.template($('#rocketTpl').html());
+        var obj = {
+            name: 'Super',
+            size: 190,
+            color: 'Red',
+            nice: false
+        };
+        $('#show').append(compiled(obj));
+    });
+</script>
+
+<script type="text/template" id="rocketTpl">
+    <div>Name: <%= name %></div>
+    <div>Size: <%= size %></div>
+    <div>Color: <%= color %></div>
+    <% if (nice == true) { %>
+        <div>Nice!</div>
+    <% } %>
+</script>
+</body>
+</html>
